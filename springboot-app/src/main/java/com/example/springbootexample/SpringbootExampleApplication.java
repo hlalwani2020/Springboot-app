@@ -14,9 +14,9 @@ public class SpringbootExampleApplication {
         SpringApplication.run(SpringbootExampleApplication.class, args);
     }
 
-    @RequestMapping(value = "/Hello", method = RequestMethod.GET)
+    @RequestMapping(value = "/smarita", method = RequestMethod.GET)
     public String hello(){
-        return "Hello everyone! This is sample number 1!";
+        return "Hello everyone! This is Smarita here!";
     }
 
 
