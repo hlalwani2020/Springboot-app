@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.devglan.service.impl;
 
@@ -14,13 +14,17 @@ import com.devglan.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
-	@Autowired
-	private UserDao userDao;
 
-	public List<UserDetails> getUserDetails() {
-		return userDao.getUserDetails();
+    @Autowired
+    private UserDao userDao;
 
-	}
+    public List<UserDetails> getUserDetails() {
+        return userDao.getUserDetails();
+
+    }
+    public List<UserDetails> setUserDetails() {
+        return userDao.setUserDetails();
+
+    }
 
 }

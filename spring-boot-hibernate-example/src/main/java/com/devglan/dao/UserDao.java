@@ -5,7 +5,8 @@ import java.util.List;
 import com.devglan.model.UserDetails;
 
 public interface UserDao {
-	
-	List<UserDetails> getUserDetails();
+
+    List<UserDetails> getUserDetails();
+    List<UserDetails> setUserDetails();
 
 }

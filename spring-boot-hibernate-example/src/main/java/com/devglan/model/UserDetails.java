@@ -19,9 +19,9 @@ public class UserDetails {
 	@Column
 	private String name;
 	@Column
-	private String height;
+	private double height;
 	@Column
-	private String weight;
+	private double weight;
 
 	public int getId() {
 		return id;
@@ -39,19 +39,19 @@ public class UserDetails {
 		this.name = name;
 	}
 
-	public String getheight() {
+	public double getheight() {
 		return height;
 	}
 
-	public void setheight(String height) {
+	public void setheight(double height) {
 		this.height = height;
 	}
 
-	public String getweight() {
+	public double getweight() {
 		return weight;
 	}
 
-	public void setweight(String weight) {
+	public void setweight(double weight) {
 		this.weight = weight;
 	}
 

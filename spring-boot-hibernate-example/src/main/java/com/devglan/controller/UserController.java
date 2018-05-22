@@ -14,15 +14,21 @@ import com.devglan.service.UserService;
 
 @Controller
 public class UserController {
-	
-	@Autowired
-	private UserService userService;
-	
-	@RequestMapping(value = "/smarita", method = RequestMethod.GET)
-	public ResponseEntity<List<UserDetails>> userDetails() {
-        
-		List<UserDetails> userDetails = userService.getUserDetails();
-		return new ResponseEntity<List<UserDetails>>(userDetails, HttpStatus.OK);
-	}
+
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping(value = "/smarita", method = RequestMethod.GET)
+    public ResponseEntity<List<UserDetails>> userDetails() {
+
+        List<UserDetails> userDetails = userService.getUserDetails();
+        return new ResponseEntity<List<UserDetails>>(userDetails, HttpStatus.OK);
+    }
+    @RequestMapping(value = "/index",method = RequestMethod.POST)
+    String index() {
+        //mapped to hostname:port/home/index/
+        return "The data has been succesfully saved, smarita!";
+    }
+
 
 }

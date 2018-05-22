@@ -11,10 +11,10 @@
         <property name="name" type="string">
             <column name="name" />
         </property>
-        <property name="height" type="int">
+        <property name="height" type="double">
             <column name="height" />
         </property>
-        <property name="weight" type="int">
+        <property name="weight" type="double">
 
             <column name="weight" />
         </property>

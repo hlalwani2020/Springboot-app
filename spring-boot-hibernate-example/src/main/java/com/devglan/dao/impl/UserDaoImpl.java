@@ -2,10 +2,16 @@ package com.devglan.dao.impl;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
-import org.hibernate.SessionFactory;
+import org.hibernate.*;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.service.ServiceRegistry;
 
 import com.devglan.dao.UserDao;
 import com.devglan.model.UserDetails;
@@ -13,12 +19,58 @@ import com.devglan.model.UserDetails;
 @Component
 public class UserDaoImpl implements UserDao {
 
-	@Autowired
-	private SessionFactory sessionFactory;
-	
-	public List<UserDetails> getUserDetails() {
-		Criteria criteria = sessionFactory.openSession().createCriteria(UserDetails.class);
-		return criteria.list();
-	}
 
-}
+    @Autowired
+    private static SessionFactory factory;
+    private SessionFactory sessionFactory;
+    private static ServiceRegistry serviceRegistry;
+
+
+    public List<UserDetails> getUserDetails() {
+        Criteria criteria = sessionFactory.openSession().createCriteria(UserDetails.class);
+        return criteria.list();
+    }
+    @SuppressWarnings("deprecation")
+    public List<UserDetails> setUserDetails() {
+        addAllConfigs();
+        long one = this.insertBMIdata(1, " Mark Johnson", 156, 67);
+        long two = this.insertBMIdata(1, " Arjun Khandelwal", 167, 65);
+
+        System.out.println(" We successfully inserted students in student table...they are..." + one + " and " + two);
+        return ;}
+
+
+        public static void addAllConfigs()
+        {
+            Configuration config = new Configuration();
+            config.configure();
+            config.addAnnotatedClass(UserDetails.class);
+            config.addResource("bmi.hbm.xml");
+            serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
+            factory = config.buildSessionFactory(serviceRegistry);
+        }
+
+        private long insertBMIdata ( int id, String name,int height,int weight){
+            Session session = factory.openSession();
+            Transaction tx = null;
+            Integer stId = null;
+            try {
+                tx = session.beginTransaction();
+                UserDetails st = new UserDetails();
+                st.setId(id);
+                st.setname(name);
+                st.setheight(height);
+                st.setweight(weight);
+
+                stId = (Integer) session.save(st);
+                tx.commit();
+            } catch (HibernateException ex) {
+                if (tx != null)
+                    tx.rollback();
+            } finally {
+                session.close();
+            }
+
+            return stId;
+        }
+    }
