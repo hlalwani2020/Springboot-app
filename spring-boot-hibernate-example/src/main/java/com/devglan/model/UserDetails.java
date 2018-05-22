@@ -54,5 +54,5 @@ public class UserDetails {
 	public void setweight(String weight) {
 		this.weight = weight;
 	}
-	
+
 }
