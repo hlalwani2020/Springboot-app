@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Nov 12, 2016 12:24:29 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="com.devglan.model.UserDetails" table="user_details">
+    <class name="BMIpatientapp.model.UserDetails" table="user_details">
         <id name="id" type="int">
             <column name="id" />
             <generator class="assigned" />

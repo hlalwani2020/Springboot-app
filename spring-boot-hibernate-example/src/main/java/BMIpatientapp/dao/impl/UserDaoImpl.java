@@ -1,7 +1,9 @@
-package com.devglan.dao.impl;
+package BMIpatientapp.dao.impl;
 
 import java.util.List;
 
+import BMIpatientapp.dao.UserDao;
+import BMIpatientapp.model.UserDetails;
 import org.hibernate.*;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -12,9 +14,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.service.ServiceRegistry;
-
-import com.devglan.dao.UserDao;
-import com.devglan.model.UserDetails;
 
 @Component("UserDao")
 public class UserDaoImpl implements UserDao {

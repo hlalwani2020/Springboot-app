@@ -1,4 +1,4 @@
-package com.devglan.model;
+package BMIpatientapp.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

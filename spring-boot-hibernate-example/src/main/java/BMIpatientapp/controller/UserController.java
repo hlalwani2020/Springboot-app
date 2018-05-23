@@ -1,20 +1,16 @@
-package com.devglan.controller;
+package BMIpatientapp.controller;
 
 import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
 
+import BMIpatientapp.model.UserDetails;
+import BMIpatientapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.ui.Model;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.devglan.model.UserDetails;
-import com.devglan.service.UserService;
 
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;

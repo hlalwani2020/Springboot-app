@@ -1,8 +1,8 @@
-package com.devglan.dao;
+package BMIpatientapp.dao;
 
 import java.util.List;
 
-import com.devglan.model.UserDetails;
+import BMIpatientapp.model.UserDetails;
 
 public interface UserDao {
 

@@ -1,16 +1,16 @@
 /**
  *
  */
-package com.devglan.service.impl;
+package BMIpatientapp.service.impl;
 
 import java.util.List;
 
+import BMIpatientapp.model.UserDetails;
+import BMIpatientapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.devglan.dao.UserDao;
-import com.devglan.model.UserDetails;
-import com.devglan.service.UserService;
+import BMIpatientapp.dao.UserDao;
 
 @Service
 public class UserServiceImpl implements UserService {

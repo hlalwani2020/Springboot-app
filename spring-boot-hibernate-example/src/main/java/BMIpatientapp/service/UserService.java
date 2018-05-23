@@ -1,11 +1,11 @@
 /**
  *
  */
-package com.devglan.service;
+package BMIpatientapp.service;
 
 import java.util.List;
 
-import com.devglan.model.UserDetails;
+import BMIpatientapp.model.UserDetails;
 
 public interface UserService {
 
