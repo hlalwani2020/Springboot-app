@@ -34,8 +34,8 @@ public class UserDaoImpl implements UserDao {
     @SuppressWarnings("deprecation")
     public List<UserDetails> setUserDetails() {
         addAllConfigs();
-        long one = this.insertBMIdata(5, " Mark diesel", 156, 67);
-        long two = this.insertBMIdata(1, " Arjun Khandelwal", 167, 65);
+        long one = this.insertBMIdata(8, " Vin diesel", 156, 67);
+        long two = this.insertBMIdata(9, " Arjun Khandelwal", 167, 65);
 
         System.out.println(" We successfully inserted students in student table...they are..." + one + " and " + two);
         return getUserDetails();}
