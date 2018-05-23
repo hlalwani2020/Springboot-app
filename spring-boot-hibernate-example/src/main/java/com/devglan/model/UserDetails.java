@@ -31,28 +31,16 @@ public class UserDetails {
 		this.id = id;
 	}
 
-	public String getname() {
-		return name;
-	}
+	public String getname() {return name;}
 
-	public void setname(String name) {
-		this.name = name;
-	}
+	public void setname(String name) {this.name = name;}
 
-	public double getheight() {
-		return height;
-	}
+	public double getheight() {return height;}
 
-	public void setheight(double height) {
-		this.height = height;
-	}
+	public void setheight(double height) {this.height = height;}
 
-	public double getweight() {
-		return weight;
-	}
+	public double getweight() {return weight;}
 
-	public void setweight(double weight) {
-		this.weight = weight;
-	}
+	public void setweight(double weight) {this.weight = weight;}
 
 }

@@ -12,23 +12,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.devglan.model.UserDetails;
 import com.devglan.service.UserService;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 @Controller
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    @RequestMapping(value = "/smarita", method = RequestMethod.GET)
-    public ResponseEntity<List<UserDetails>> userDetails() {
+	@RequestMapping(value = "/smarita", method = RequestMethod.GET)
+	public ResponseEntity<List<UserDetails>> userDetails() {
 
-        List<UserDetails> userDetails = userService.getUserDetails();
+		List<UserDetails> userDetails = userService.getUserDetails();
+		return new ResponseEntity<List<UserDetails>>(userDetails, HttpStatus.OK);
+	}
+    @RequestMapping(value = "/insertdata", method = GET)
+    public ResponseEntity<List<UserDetails>> userDetail() {
+
+        List<UserDetails> userDetails = userService.setUserDetails();
         return new ResponseEntity<List<UserDetails>>(userDetails, HttpStatus.OK);
     }
-    @RequestMapping(value = "/index",method = RequestMethod.POST)
-    String index() {
-        //mapped to hostname:port/home/index/
-        return "The data has been succesfully saved, smarita!";
-    }
-
 
 }

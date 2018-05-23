@@ -16,14 +16,15 @@ import org.hibernate.service.ServiceRegistry;
 import com.devglan.dao.UserDao;
 import com.devglan.model.UserDetails;
 
-@Component
+@Component("UserDao")
 public class UserDaoImpl implements UserDao {
 
-
-    @Autowired
-    private static SessionFactory factory;
-    private SessionFactory sessionFactory;
     private static ServiceRegistry serviceRegistry;
+    private static SessionFactory factory;
+    @Autowired
+
+    private SessionFactory sessionFactory;
+
 
 
     public List<UserDetails> getUserDetails() {
@@ -33,11 +34,11 @@ public class UserDaoImpl implements UserDao {
     @SuppressWarnings("deprecation")
     public List<UserDetails> setUserDetails() {
         addAllConfigs();
-        long one = this.insertBMIdata(1, " Mark Johnson", 156, 67);
+        long one = this.insertBMIdata(5, " Mark diesel", 156, 67);
         long two = this.insertBMIdata(1, " Arjun Khandelwal", 167, 65);
 
         System.out.println(" We successfully inserted students in student table...they are..." + one + " and " + two);
-        return ;}
+        return getUserDetails();}
 
 
         public static void addAllConfigs()
