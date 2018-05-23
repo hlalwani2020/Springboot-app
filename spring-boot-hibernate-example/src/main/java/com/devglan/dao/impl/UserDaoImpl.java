@@ -26,52 +26,48 @@ public class UserDaoImpl implements UserDao {
     private SessionFactory sessionFactory;
 
 
-
     public List<UserDetails> getUserDetails() {
         Criteria criteria = sessionFactory.openSession().createCriteria(UserDetails.class);
         return criteria.list();
     }
+
     @SuppressWarnings("deprecation")
-    public List<UserDetails> setUserDetails() {
+    public List<UserDetails> setUserDetails(int id, String name, double height, double weight) {
         addAllConfigs();
-        long one = this.insertBMIdata(8, " Vin diesel", 156, 67);
-        long two = this.insertBMIdata(9, " Arjun Khandelwal", 167, 65);
-
-        System.out.println(" We successfully inserted students in student table...they are..." + one + " and " + two);
-        return getUserDetails();}
-
-
-        public static void addAllConfigs()
-        {
-            Configuration config = new Configuration();
-            config.configure();
-            config.addAnnotatedClass(UserDetails.class);
-            config.addResource("bmi.hbm.xml");
-            serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
-            factory = config.buildSessionFactory(serviceRegistry);
-        }
-
-        private long insertBMIdata ( int id, String name,int height,int weight){
-            Session session = factory.openSession();
-            Transaction tx = null;
-            Integer stId = null;
-            try {
-                tx = session.beginTransaction();
-                UserDetails st = new UserDetails();
-                st.setId(id);
-                st.setname(name);
-                st.setheight(height);
-                st.setweight(weight);
-
-                stId = (Integer) session.save(st);
-                tx.commit();
-            } catch (HibernateException ex) {
-                if (tx != null)
-                    tx.rollback();
-            } finally {
-                session.close();
-            }
-
-            return stId;
-        }
+        return getUserDetails();
     }
+
+
+    public static void addAllConfigs() {
+        Configuration config = new Configuration();
+        config.configure();
+        config.addAnnotatedClass(UserDetails.class);
+        config.addResource("bmi.hbm.xml");
+        serviceRegistry = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
+        factory = config.buildSessionFactory(serviceRegistry);
+    }
+
+    private long insertBMIdata(int id, String name, double height, double weight) {
+        Session session = factory.openSession();
+        Transaction tx = null;
+        Integer stId = null;
+        try {
+            tx = session.beginTransaction();
+            UserDetails st = new UserDetails();
+            st.setId(id);
+            st.setname(name);
+            st.setheight(height);
+            st.setweight(weight);
+
+            stId = (Integer) session.save(st);
+            tx.commit();
+        } catch (HibernateException ex) {
+            if (tx != null)
+                tx.rollback();
+        } finally {
+            session.close();
+        }
+
+        return stId;
+    }
+}

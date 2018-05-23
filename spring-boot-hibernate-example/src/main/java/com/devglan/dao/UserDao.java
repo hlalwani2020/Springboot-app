@@ -7,6 +7,6 @@ import com.devglan.model.UserDetails;
 public interface UserDao {
 
     List<UserDetails> getUserDetails();
-    List<UserDetails> setUserDetails();
+    List<UserDetails> setUserDetails(int id, String name, double height, double weight);
 
 }
