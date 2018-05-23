@@ -34,6 +34,7 @@ public class UserDaoImpl implements UserDao {
     @SuppressWarnings("deprecation")
     public List<UserDetails> setUserDetails(int id, String name, double height, double weight) {
         addAllConfigs();
+        insertBMIdata(id, name, height, weight);
         return getUserDetails();
     }
 
