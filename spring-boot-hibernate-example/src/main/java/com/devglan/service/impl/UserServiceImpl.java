@@ -22,8 +22,8 @@ public class UserServiceImpl implements UserService {
         return userDao.getUserDetails();
 
     }
-    public List<UserDetails> setUserDetails() {
-        return userDao.setUserDetails();
+    public List<UserDetails> setUserDetails(int id, String name, double height, double weight) {
+        return userDao.setUserDetails( id,  name,  height,  weight);
 
     }
 
