@@ -34,6 +34,11 @@ public class UserController {
         List<UserDetails> userDetails = userService.getUserDetails();
         return new ResponseEntity<List<UserDetails>>(userDetails, HttpStatus.OK);
     }
+    @RequestMapping(value = "/insertform", method = RequestMethod.GET)
+    public String hello(){
+        return "home";
+    }
+    
 
     @RequestMapping(value = "/insertdata", method = GET)
     public ResponseEntity<List<UserDetails>> userDetail(@RequestParam("id") int id,
